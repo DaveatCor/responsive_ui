@@ -2,6 +2,8 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 
+import 'package:responsive_ui/services.dart';
+
 void main() => runApp(
   DevicePreview(
     builder: (context) => MyApp(),
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Testing'),
     );
   }
 }
@@ -53,7 +55,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  Color defaultColor = Colors.white.withOpacity(0.8);
+  Color defaultColor = getHexaColor("#00ffef").withOpacity(0.8);
 
   int _counter = 0;
 
@@ -78,83 +80,103 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      backgroundColor: Colors.white.withOpacity(0.8),
-      body: Column(
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(top: 25.0,),
-            padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0, bottom: 20.0),
-            child: Row(
-              children: <Widget>[
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.8),
-                    border: Border.all(width: 1, color: Colors.black.withOpacity(0.2)),
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 2,
-                        spreadRadius: 0.5,
-                        color: Colors.black.withOpacity(0.5),
-                        offset: Offset(
-                          2, 1
-                        )
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(50)
-                  ),
-                  child: IconButton(
-                    icon: Icon(Icons.menu),
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Screen2()));
-                    },
-                  ),
-                ),  
-                Container(
-                  margin: EdgeInsets.only(left: 10.0),
-                  child: Text(
-                    widget.title, 
-                    style: TextStyle(
-                      color: Colors.black, 
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20.0
-                    ),
-                  ),
+      backgroundColor: getHexaColor("#192c38"),
+      body: Container(
+        // decoration: BoxDecoration(
+        //   gradient: LinearGradient(
+        //     begin: Alignment.centerLeft, end: Alignment.centerRight,
+        //     colors: [
+        //       getHexaColor("#2aba94"),
+        //       getHexaColor("#2cb9ad")
+        //     ]
+        //   )
+        // ),
+        child: Column(
+          children: <Widget>[
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.centerLeft, end: Alignment.centerRight,
+                  colors: [
+                    getHexaColor("#00ffef").withOpacity(0.8),
+                    // getHexaColor("#00ffef").withOpacity(0.8),
+                    getHexaColor("#006962").withOpacity(0.8)
+                  ]
                 )
-              ],
+              ),
+              padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 45.0, bottom: 10.0),
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    // decoration: BoxDecoration(
+                    //   color: getHexaColor("#00ffef"),
+                    //   border: Border.all(width: 1, color: Colors.black.withOpacity(0.2)),
+                    //   boxShadow: [
+                    //     BoxShadow(
+                    //       blurRadius: 2,
+                    //       spreadRadius: 0.5,
+                    //       color: Colors.black.withOpacity(0.5),
+                    //       offset: Offset(
+                    //         2, 1
+                    //       )
+                    //     )
+                    //   ],
+                    //   borderRadius: BorderRadius.circular(50)
+                    // ),
+                    child: IconButton(
+                      icon: Icon(Icons.sort, color: Colors.white,),
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => Screen2()));
+                      },
+                    ),
+                  ),  
+                  Container(
+                    margin: EdgeInsets.only(left: 10.0),
+                    child: Text(
+                      widget.title, 
+                      style: TextStyle(
+                        color: Colors.white, 
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
-          myCard(context, defaultColor),
-          Center(
-            // Center is a layout widget. It takes a single child and positions it
-            // in the middle of the parent.
-            child: Column(
-              // Column is also a layout widget. It takes a list of children and
-              // arranges them vertically. By default, it sizes itself to fit its
-              // children horizontally, and tries to be as tall as its parent.
-              //
-              // Invoke "debug painting" (press "p" in the console, choose the
-              // "Toggle Debug Paint" action from the Flutter Inspector in Android
-              // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-              // to see the wireframe for each widget.
-              //
-              // Column has various properties to control how it sizes itself and
-              // how it positions its children. Here we use mainAxisAlignment to
-              // center the children vertically; the main axis here is the vertical
-              // axis because Columns are vertical (the cross axis would be
-              // horizontal).
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  'You have pushed the button this many times:',
-                ),
-                Text(
-                  '$size',
-                  style: Theme.of(context).textTheme.display1,
-                ),
-              ],
-            ),
-          )
-        ],
+            myCard(context, defaultColor),
+            Center(
+              // Center is a layout widget. It takes a single child and positions it
+              // in the middle of the parent.
+              child: Column(
+                // Column is also a layout widget. It takes a list of children and
+                // arranges them vertically. By default, it sizes itself to fit its
+                // children horizontally, and tries to be as tall as its parent.
+                //
+                // Invoke "debug painting" (press "p" in the console, choose the
+                // "Toggle Debug Paint" action from the Flutter Inspector in Android
+                // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
+                // to see the wireframe for each widget.
+                //
+                // Column has various properties to control how it sizes itself and
+                // how it positions its children. Here we use mainAxisAlignment to
+                // center the children vertically; the main axis here is the vertical
+                // axis because Columns are vertical (the cross axis would be
+                // horizontal).
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'You have pushed the button this many times:',
+                  ),
+                  Text(
+                    '$size',
+                    style: Theme.of(context).textTheme.display1,
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,

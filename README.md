@@ -2,6 +2,10 @@
 
 A new Flutter project.
 
+# integration:
+
+https://pub.dev/packages/device_preview
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
