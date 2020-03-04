@@ -1,6 +1,7 @@
 # responsive_ui
 
-A new Flutter project.
+## Responsive UI url.
+https://www.raywenderlich.com/4324124-responsive-design-for-flutter-getting-started
 
 # integration:
 
