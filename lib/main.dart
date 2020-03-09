@@ -5,10 +5,11 @@ import 'dart:ui' as ui;
 
 import 'package:responsive_ui/services.dart';
 
-void main() => runApp(MyApp()
-  // DevicePreview(
-  //   builder: (context) => MyApp(),
-  // )
+void main() => runApp(
+  // MyApp()
+  DevicePreview(
+    builder: (context) => MyApp(),
+  )
 );
 
 class MyApp extends StatelessWidget {
@@ -16,8 +17,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // locale: DevicePreview.of(context).locale,
-      // builder: DevicePreview.appBuilder,
+      locale: DevicePreview.of(context).locale,
+      builder: DevicePreview.appBuilder,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
